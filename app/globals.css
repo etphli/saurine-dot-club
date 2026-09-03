@@ -1018,6 +1018,7 @@ a {
   }
 
   .hero {
+    align-items: stretch;
     display: flex;
     flex-direction: column;
     min-height: auto;
@@ -1026,7 +1027,11 @@ a {
   }
 
   .hero h1 {
-    font-size: clamp(62px, 18vw, 112px);
+    font-size: clamp(54px, 15vw, 92px);
+  }
+
+  .hero-copy {
+    width: 100%;
   }
 
   .hero-lede {

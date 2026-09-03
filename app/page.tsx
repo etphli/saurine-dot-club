@@ -160,8 +160,492 @@ const archivePortraits = [
   },
 ] satisfies ReadonlyArray<Portrait>;
 
-const allPortraits = [...portraits, ...archivePortraits] satisfies ReadonlyArray<Portrait>;
-const tickerPortraits = [...portraits, ...archivePortraits.slice(0, 4)];
+const extendedArchivePortraits = [
+  {
+    src: '/saurine-21-mail-carrier.jpg',
+    name: 'Mailroom Saurine',
+    alt: 'Mr Saurine as a mail carrier with envelopes and a red mailbox',
+    caption: 'The memo has arrived.',
+  },
+  {
+    src: '/saurine-22-beekeeper.jpg',
+    name: 'Honey duty',
+    alt: 'Mr Saurine as a beekeeper with a honey dipper and friendly bees',
+    caption: 'Sweetening the lesson plan.',
+  },
+  {
+    src: '/saurine-23-librarian.jpg',
+    name: 'Library mode',
+    alt: 'Mr Saurine as a librarian with a rolling book cart and colorful books',
+    caption: 'Quiet, please. The books are plotting.',
+  },
+  {
+    src: '/saurine-24-train-conductor.jpg',
+    name: 'Train conductor',
+    alt: 'Mr Saurine as a train conductor with a navy cap and timetable',
+    caption: 'Next stop: period three.',
+  },
+  {
+    src: '/saurine-25-park-ranger.jpg',
+    name: 'Trail guide',
+    alt: 'Mr Saurine as a park ranger with binoculars and a folded trail map',
+    caption: 'Taking the scenic route to homeroom.',
+  },
+  {
+    src: '/saurine-26-museum-curator.jpg',
+    name: 'Museum mode',
+    alt: 'Mr Saurine as a museum curator with white gloves and a tiny sculpture',
+    caption: 'Please do not touch the syllabus.',
+  },
+  {
+    src: '/saurine-27-weather-presenter.jpg',
+    name: 'Weather desk',
+    alt: 'Mr Saurine as a weather presenter with an umbrella and a colorful map',
+    caption: 'Forecast: scattered worksheets.',
+  },
+  {
+    src: '/saurine-28-baker.jpg',
+    name: 'Flour power',
+    alt: 'Mr Saurine as a baker with a rolling pin and a giant mixing bowl',
+    caption: 'Whisking up another example.',
+  },
+  {
+    src: '/saurine-29-photographer.jpg',
+    name: 'Flashbulb faculty',
+    alt: 'Mr Saurine as a photographer with a vintage camera and a flash',
+    caption: 'Say cheese, then cite your sources.',
+  },
+  {
+    src: '/saurine-30-florist.jpg',
+    name: 'Bouquet boss',
+    alt: 'Mr Saurine as a florist with a bright bouquet and gardening shears',
+    caption: 'A blooming good explanation.',
+  },
+  {
+    src: '/saurine-31-zookeeper.jpg',
+    name: 'Zoo notes',
+    alt: 'Mr Saurine as a zookeeper with a safari hat and a tiny toy giraffe',
+    caption: 'The classroom ecosystem is thriving.',
+  },
+  {
+    src: '/saurine-32-archaeologist.jpg',
+    name: 'Artifact hour',
+    alt: 'Mr Saurine as an archaeologist with a soft brush and a tiny ancient pot',
+    caption: 'Unearthing the lost homework.',
+  },
+  {
+    src: '/saurine-33-submarine-captain.jpg',
+    name: 'Submarine Saurine',
+    alt: 'Mr Saurine as a submarine captain with a periscope and nautical sweater',
+    caption: 'Going deep on the topic.',
+  },
+  {
+    src: '/saurine-34-lighthouse-keeper.jpg',
+    name: 'Lighthouse duty',
+    alt: 'Mr Saurine as a lighthouse keeper with a lantern and striped sweater',
+    caption: 'Keeping every thought illuminated.',
+  },
+  {
+    src: '/saurine-35-circus-ringmaster.jpg',
+    name: 'Ringmaster',
+    alt: 'Mr Saurine as a circus ringmaster with a top hat and bright red jacket',
+    caption: 'The greatest lesson on Earth.',
+  },
+  {
+    src: '/saurine-36-stage-performer.jpg',
+    name: 'Puppet stage',
+    alt: 'Mr Saurine as a stage performer with a colorful toy figure and tiny curtains',
+    caption: 'A supporting character has entered.',
+  },
+  {
+    src: '/saurine-37-chess-grandmaster.jpg',
+    name: 'Chess clock',
+    alt: 'Mr Saurine as a chess grandmaster with an oversized blue chess piece',
+    caption: 'Thinking three moves ahead.',
+  },
+  {
+    src: '/saurine-38-game-host.jpg',
+    name: 'Game-show Saurine',
+    alt: 'Mr Saurine as a game host with foam dice and colorful game pieces',
+    caption: 'The answer is probably C.',
+  },
+  {
+    src: '/saurine-39-paper-craft-teacher.jpg',
+    name: 'Paper crane',
+    alt: 'Mr Saurine as a paper craft teacher folding a paper crane',
+    caption: 'Folding facts into shape.',
+  },
+  {
+    src: '/saurine-40-kite-flyer.jpg',
+    name: 'Kite class',
+    alt: 'Mr Saurine as a kite flyer with a vivid diamond kite and string spool',
+    caption: 'Taking the lesson airborne.',
+  },
+  {
+    src: '/saurine-41-surfer.jpg',
+    name: 'Surf report',
+    alt: 'Mr Saurine as a surfer with a tiny surfboard and beach umbrella',
+    caption: 'Wave hello to the timetable.',
+  },
+  {
+    src: '/saurine-42-skater.jpg',
+    name: 'Skate park',
+    alt: 'Mr Saurine as a skater standing beside a colorful skateboard and bright helmet',
+    caption: 'Rolling into the next period.',
+  },
+  {
+    src: '/saurine-43-skier.jpg',
+    name: 'Snow day',
+    alt: 'Mr Saurine as a skier in a knitted scarf holding skis upright',
+    caption: 'Cool head, warmer scarf.',
+  },
+  {
+    src: '/saurine-44-cyclist.jpg',
+    name: 'Bell rider',
+    alt: 'Mr Saurine as a cyclist with a helmet, bicycle bell, and route map',
+    caption: 'Pedalling toward the answer.',
+  },
+  {
+    src: '/saurine-45-rowing-coach.jpg',
+    name: 'Oar office',
+    alt: 'Mr Saurine as a boating instructor with an oar and bright life vest',
+    caption: 'Pulling the class together.',
+  },
+  {
+    src: '/saurine-46-cricket-teacher.jpg',
+    name: 'Cricket call',
+    alt: 'Mr Saurine as a cricket teacher holding a bat and colorful scorecard',
+    caption: 'A very official appeal.',
+  },
+  {
+    src: '/saurine-47-tennis-teacher.jpg',
+    name: 'Court coach',
+    alt: 'Mr Saurine as a tennis teacher holding a racket and yellow tennis ball',
+    caption: 'Serving a clean explanation.',
+  },
+  {
+    src: '/saurine-48-golfer.jpg',
+    name: 'Fairway faculty',
+    alt: 'Mr Saurine as a golfer holding a putter beside a tiny flag',
+    caption: 'A hole-in-one attendance roll.',
+  },
+  {
+    src: '/saurine-49-bowling-teacher.jpg',
+    name: 'Strike zone',
+    alt: 'Mr Saurine as a bowling teacher with a bowling ball and colorful pins',
+    caption: 'Striking the right tone.',
+  },
+  {
+    src: '/saurine-50-ice-cream-seller.jpg',
+    name: 'Scoop shop',
+    alt: 'Mr Saurine as an ice-cream seller with a striped apron and giant cone',
+    caption: 'Extra sprinkles, no extensions.',
+  },
+  {
+    src: '/saurine-51-pizza-chef.jpg',
+    name: 'Pizza period',
+    alt: 'Mr Saurine as a pizza chef with a pizza paddle and bright slice',
+    caption: 'The slice is due Friday.',
+  },
+  {
+    src: '/saurine-52-barista.jpg',
+    name: 'Coffee break',
+    alt: 'Mr Saurine as a barista with a coffee mug and blank board-shaped prop',
+    caption: 'Strong notes, stronger coffee.',
+  },
+  {
+    src: '/saurine-53-tea-host.jpg',
+    name: 'Tea time',
+    alt: 'Mr Saurine as a tea host with a teapot, teacup, and tiny biscuits',
+    caption: 'Steeping in the key idea.',
+  },
+  {
+    src: '/saurine-54-chocolatier.jpg',
+    name: 'Bonbon boss',
+    alt: 'Mr Saurine as a chocolatier with a tray of colorful bonbons',
+    caption: 'A deliciously complex topic.',
+  },
+  {
+    src: '/saurine-55-jam-maker.jpg',
+    name: 'Jam session',
+    alt: 'Mr Saurine as a jam maker with a fruit jar and toast',
+    caption: 'Spreading the knowledge.',
+  },
+  {
+    src: '/saurine-56-picnic-captain.jpg',
+    name: 'Picnic period',
+    alt: 'Mr Saurine as a picnic captain with a basket, checkered cloth, and lemonade',
+    caption: 'Lunch break has entered the chat.',
+  },
+  {
+    src: '/saurine-57-camping-guide.jpg',
+    name: 'Camp counselor',
+    alt: 'Mr Saurine as a camping guide with a tiny tent model and flashlight',
+    caption: 'Gather round the campfire of facts.',
+  },
+  {
+    src: '/saurine-58-astronomer.jpg',
+    name: 'Star chart',
+    alt: 'Mr Saurine as an astronomer with a telescope and star chart',
+    caption: 'The syllabus is in orbit.',
+  },
+  {
+    src: '/saurine-59-paleontologist.jpg',
+    name: 'Fossil finding',
+    alt: 'Mr Saurine as a paleontologist with a fossil bone and soft brush',
+    caption: 'A prehistoric pop quiz.',
+  },
+  {
+    src: '/saurine-60-marine-science-teacher.jpg',
+    name: 'Tide pool',
+    alt: 'Mr Saurine as a marine science teacher with a seashell and blue raincoat',
+    caption: 'Making waves in science.',
+  },
+  {
+    src: '/saurine-61-botanist.jpg',
+    name: 'Leaf lab',
+    alt: 'Mr Saurine as a botanist with a leaf press and leafy sprig',
+    caption: 'Growing the answer organically.',
+  },
+  {
+    src: '/saurine-62-chemist.jpg',
+    name: 'Bubble lab',
+    alt: 'Mr Saurine as a classroom chemist with colorful test tubes and bubbles',
+    caption: 'A formula for staying curious.',
+  },
+  {
+    src: '/saurine-63-mathematician.jpg',
+    name: 'Number crunch',
+    alt: 'Mr Saurine as a mathematician with an abacus and geometric blocks',
+    caption: 'The numbers have feelings.',
+  },
+  {
+    src: '/saurine-64-geographer.jpg',
+    name: 'Globe class',
+    alt: 'Mr Saurine as a geographer with a globe, compass, and rolled map',
+    caption: 'Around the world in one lesson.',
+  },
+  {
+    src: '/saurine-65-historian.jpg',
+    name: 'History desk',
+    alt: 'Mr Saurine as a historian with a scroll and magnifying glass',
+    caption: 'The past has submitted a report.',
+  },
+  {
+    src: '/saurine-66-poet.jpg',
+    name: 'Poetry period',
+    alt: 'Mr Saurine as a poet with a fountain pen and blank notebook',
+    caption: 'A full stop with rhythm.',
+  },
+  {
+    src: '/saurine-67-novelist.jpg',
+    name: 'Typewriter teacher',
+    alt: 'Mr Saurine as a novelist with a vintage typewriter and coffee mug',
+    caption: 'Chapter one: open your book.',
+  },
+  {
+    src: '/saurine-68-drummer.jpg',
+    name: 'Drum roll',
+    alt: 'Mr Saurine as a drummer with a tiny drum and drumsticks',
+    caption: 'Please hold for dramatic emphasis.',
+  },
+  {
+    src: '/saurine-69-guitar-teacher.jpg',
+    name: 'Guitar club',
+    alt: 'Mr Saurine as a guitar teacher with a small acoustic guitar',
+    caption: 'Strumming toward the solution.',
+  },
+  {
+    src: '/saurine-70-saxophone-player.jpg',
+    name: 'Sax class',
+    alt: 'Mr Saurine as a saxophone player with a shiny saxophone',
+    caption: 'A smooth explanation incoming.',
+  },
+  {
+    src: '/saurine-71-choir-director.jpg',
+    name: 'Choir cue',
+    alt: 'Mr Saurine as a choir director with a closed music folder and tuning fork',
+    caption: 'Everyone find their key.',
+  },
+  {
+    src: '/saurine-72-ballet-teacher.jpg',
+    name: 'Ballet brief',
+    alt: 'Mr Saurine as a ballet teacher with dance shoes and ribbon wand',
+    caption: 'Graceful, precise, slightly dramatic.',
+  },
+  {
+    src: '/saurine-73-mime.jpg',
+    name: 'Invisible box',
+    alt: 'Mr Saurine as a friendly mime with a striped shirt and white gloves',
+    caption: 'The instructions are right here.',
+  },
+  {
+    src: '/saurine-74-friendly-clown.jpg',
+    name: 'Party horn',
+    alt: 'Mr Saurine as a friendly clown with a colorful bow tie and party horn',
+    caption: 'No red noses were harmed.',
+  },
+  {
+    src: '/saurine-75-crystal-ball.jpg',
+    name: 'Crystal desk',
+    alt: 'Mr Saurine as a whimsical fortune-teller with a decorative crystal ball',
+    caption: 'The forecast says: more Saurine.',
+  },
+  {
+    src: '/saurine-76-robot-workshop.jpg',
+    name: 'Robot workshop',
+    alt: 'Mr Saurine as a robot workshop teacher with a toy robot and small wrench',
+    caption: 'Teaching machines good manners.',
+  },
+  {
+    src: '/saurine-77-computer-technician.jpg',
+    name: 'Pixel support',
+    alt: 'Mr Saurine as a computer technician with a keyboard and pixel sparkles',
+    caption: 'Have you tried turning in the homework?',
+  },
+  {
+    src: '/saurine-78-game-designer.jpg',
+    name: 'Game studio',
+    alt: 'Mr Saurine as a video game designer with a controller and pixel blocks',
+    caption: 'Achievement unlocked: understanding.',
+  },
+  {
+    src: '/saurine-79-architect.jpg',
+    name: 'Blueprint boss',
+    alt: 'Mr Saurine as an architect with a scale ruler and tiny model building',
+    caption: 'Constructing a better excuse.',
+  },
+  {
+    src: '/saurine-80-hasidic-jewish.jpg',
+    name: 'Traditional dress',
+    alt: 'Mr Saurine respectfully dressed in traditional Hasidic Jewish clothing with a black fedora and book',
+    caption: 'Traditional dress, unmistakably Saurine.',
+  },
+  {
+    src: '/saurine-81-map-maker.jpg',
+    name: 'Map maker',
+    alt: 'Mr Saurine as a map maker with rolled maps, a ruler, and compass',
+    caption: 'Charting a course through period four.',
+  },
+  {
+    src: '/saurine-82-interior-designer.jpg',
+    name: 'Room remix',
+    alt: 'Mr Saurine as an interior designer with color swatches and tiny chair model',
+    caption: 'Rearranging the learning environment.',
+  },
+  {
+    src: '/saurine-83-tailor.jpg',
+    name: 'Stitch teacher',
+    alt: 'Mr Saurine as a tailor with a measuring tape, thread spool, and bright fabric',
+    caption: 'A perfectly fitted explanation.',
+  },
+  {
+    src: '/saurine-84-shoemaker.jpg',
+    name: 'Shoe story',
+    alt: 'Mr Saurine as a shoemaker with a giant friendly shoe and leather apron',
+    caption: 'Putting the lesson on its feet.',
+  },
+  {
+    src: '/saurine-85-watchmaker.jpg',
+    name: 'Timepiece teacher',
+    alt: 'Mr Saurine as a watchmaker with a pocket watch and decorative gears',
+    caption: 'Every minute has been accounted for.',
+  },
+  {
+    src: '/saurine-86-toy-maker.jpg',
+    name: 'Toy lab',
+    alt: 'Mr Saurine as a toy maker with wooden blocks and a cheerful wind-up toy',
+    caption: 'Building play into the curriculum.',
+  },
+  {
+    src: '/saurine-87-comic-artist.jpg',
+    name: 'Comic corner',
+    alt: 'Mr Saurine as a comic-book artist with an ink brush and blank speech bubbles',
+    caption: 'To be continued after lunch.',
+  },
+  {
+    src: '/saurine-88-film-director.jpg',
+    name: 'Movie maker',
+    alt: 'Mr Saurine as a film director with a blank clapperboard and vintage camera',
+    caption: 'Roll camera, cue the bell.',
+  },
+  {
+    src: '/saurine-89-radio-host.jpg',
+    name: 'Radio room',
+    alt: 'Mr Saurine as a radio host with a retro microphone and headphones',
+    caption: 'Broadcasting from the staffroom.',
+  },
+  {
+    src: '/saurine-90-podcaster.jpg',
+    name: 'Podcast period',
+    alt: 'Mr Saurine as a podcaster with a studio microphone and colorful audio bars',
+    caption: 'Please subscribe to the syllabus.',
+  },
+  {
+    src: '/saurine-91-seed-librarian.jpg',
+    name: 'Seed shelf',
+    alt: 'Mr Saurine as a seed librarian with seed packets, drawer cabinet, and leafy sprig',
+    caption: 'Planting ideas for later.',
+  },
+  {
+    src: '/saurine-92-city-planner.jpg',
+    name: 'City grid',
+    alt: 'Mr Saurine as a city planner with tiny colorful buildings and a street grid',
+    caption: 'Population: one very busy teacher.',
+  },
+  {
+    src: '/saurine-93-ferry-captain.jpg',
+    name: 'Ferry faculty',
+    alt: 'Mr Saurine as a ferry captain with a navy cap, route map, and life ring',
+    caption: 'All aboard for the next bell.',
+  },
+  {
+    src: '/saurine-94-bicycle-shop.jpg',
+    name: 'Bike shop',
+    alt: 'Mr Saurine as a bicycle shop teacher with a hand pump, toolkit, and bell',
+    caption: 'A well-oiled lesson plan.',
+  },
+  {
+    src: '/saurine-95-umbrella-designer.jpg',
+    name: 'Umbrella lab',
+    alt: 'Mr Saurine as an umbrella designer with colorful umbrellas and fabric swatches',
+    caption: 'Covering every possible angle.',
+  },
+  {
+    src: '/saurine-96-candle-maker.jpg',
+    name: 'Candle class',
+    alt: 'Mr Saurine as a candle maker with a mold, apron, and colorful wax shapes',
+    caption: 'A bright idea, carefully poured.',
+  },
+  {
+    src: '/saurine-97-glass-artist.jpg',
+    name: 'Glass studio',
+    alt: 'Mr Saurine as a glass artist with a colorful glass orb and studio apron',
+    caption: 'Handling the concept with care.',
+  },
+  {
+    src: '/saurine-98-ceramicist.jpg',
+    name: 'Clay club',
+    alt: 'Mr Saurine as a ceramicist with a clay pot, apron, and pottery-wheel shape',
+    caption: 'Shaping the lesson by hand.',
+  },
+  {
+    src: '/saurine-99-woodworker.jpg',
+    name: 'Woodshop',
+    alt: 'Mr Saurine as a woodworker with a ruler, tiny birdhouse, and wood shavings',
+    caption: 'Building something worth remembering.',
+  },
+  {
+    src: '/saurine-100-leather-crafter.jpg',
+    name: 'Leather lab',
+    alt: 'Mr Saurine as a leather craft teacher with stitching tools and a small satchel',
+    caption: 'A handcrafted final answer.',
+  },
+] satisfies ReadonlyArray<Portrait>;
+
+const allArchivePortraits = [...archivePortraits, ...extendedArchivePortraits];
+const allPortraits = [...portraits, ...allArchivePortraits] satisfies ReadonlyArray<Portrait>;
+const tickerPortraits = [...portraits, ...allArchivePortraits.slice(0, 4)];
 
 const moments = [
   {
@@ -395,13 +879,13 @@ export default function Home() {
         <div className="archive-heading">
           <div>
             <p className="section-number">04 / The expanded archive</p>
-            <h2>Twenty more Saurines.</h2>
+            <h2>One hundred Saurines.</h2>
           </div>
-          <p>Twenty fresh universes. Pick one to send it straight to the top.</p>
+          <p>Twenty classics, eighty fresh universes. Pick one to send it straight to the top.</p>
         </div>
 
-        <div className="archive-grid" role="group" aria-label="Twenty more Mr Saurine portraits">
-          {archivePortraits.map((portrait, index) => {
+        <div className="archive-grid" role="group" aria-label="One hundred Mr Saurine portraits">
+          {allArchivePortraits.map((portrait, index) => {
             const allIndex = portraits.length + index;
 
             return (
