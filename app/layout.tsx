@@ -2,20 +2,21 @@ import type { Metadata } from 'next';
 import './globals.css';
 
 export const metadata: Metadata = {
-  title: 'Saurine Dot Club | Mr Saurine is everywhere',
+  metadataBase: new URL('https://saurine.vercel.app'),
+  title: 'The Saurine Chronicle | 300 unofficial sightings',
   description:
-    'The unofficial Mr Saurine noticeboard, with an unreasonable number of stickers.',
+    'An unofficial, affectionate field guide to Mr Saurine: 300 portraits, sightings, and school-day side quests.',
   openGraph: {
-    title: 'Saurine Dot Club | Mr Saurine is everywhere',
+    title: 'The Saurine Chronicle | 300 unofficial sightings',
     description:
-      'The unofficial Mr Saurine noticeboard, with an unreasonable number of stickers.',
+      'An unofficial, affectionate field guide to Mr Saurine: 300 portraits, sightings, and school-day side quests.',
     images: ['/og.png'],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Saurine Dot Club | Mr Saurine is everywhere',
+    title: 'The Saurine Chronicle | 300 unofficial sightings',
     description:
-      'The unofficial Mr Saurine noticeboard, with an unreasonable number of stickers.',
+      'An unofficial, affectionate field guide to Mr Saurine: 300 portraits, sightings, and school-day side quests.',
     images: ['/og.png'],
   },
 };
